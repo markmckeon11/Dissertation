@@ -6,7 +6,7 @@ This repository contains the full codebase for the final year project titled:
 “Interpretable Deep Multimodal Prediction of 30-Day Readmissions in Elderly Patients Using Fine-Tuned ClinicalBERT and EHR Data”
 
 Notebooks
-1. Final_Preprocessing.ipynb
+Final_Preprocessing.ipynb
 Purpose: Data cleaning, feature engineering, and dataset preparation.
 Key steps:
 
@@ -26,7 +26,7 @@ Aligning patients with clinical notes
 
 Traditional baseline models (LR, RF, XGBoost)
 
-2. Final_Modelling_XAI_Dissertation.ipynb
+Final_Modelling_XAI_Dissertation.ipynb
 Purpose: Fine-tuning ClinicalBERT, extracting attention-based embeddings, and implementing hybrid models.
 Key steps:
 
