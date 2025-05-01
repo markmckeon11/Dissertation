@@ -1,56 +1,58 @@
-# Dissertation
-Business Analytics Bsc Final Dissertation
+# Business Analytics BSc Final Dissertation
 
-ClinicalBERT Fusion Models for 30-Day Readmission Prediction
-This repository contains the full codebase for the final year project titled:
-“Interpretable Deep Multimodal Prediction of 30-Day Readmissions in Elderly Patients Using Fine-Tuned ClinicalBERT and EHR Data”
+**Project Title:**  
+**Interpretable Deep Multimodal Prediction of 30-Day Readmissions in Elderly Patients Using Fine-Tuned ClinicalBERT and EHR Data**
 
-Notebooks
-Final_Preprocessing.ipynb
-Purpose: Data cleaning, feature engineering, and dataset preparation.
-Key steps:
+This repository contains the full codebase for a final year dissertation exploring interpretable machine learning models that combine structured electronic health records (EHR) with clinical text data to predict 30-day hospital readmissions among elderly patients.
 
-Mapping diagnoses, procedures, labs, prescriptions
+---
 
-Merging structured data sources (ICD, labs, meds)
+## Notebooks
 
-Aggregating long-format data into one row per admission
+### `Final_Preprocessing.ipynb`  
+**Purpose:** Data cleaning, feature engineering, and structured model baselines.
 
-Calculating readmission target variable
+**Key steps:**
+- Mapping ICD codes, lab results, and prescriptions  
+- Merging structured datasets  
+- Aggregating to one row per admission  
+- Calculating 30-day readmission outcome  
+- Handling missing values and encoding features  
+- SMOTEENN class balancing  
+- Aligning patients with discharge notes  
+- Training baseline models (Logistic Regression, Random Forest, XGBoost)
 
-Imputation and encoding
+---
 
-SMOTEENN resampling
+### `Final_Modelling_XAI_Dissertation.ipynb`  
+**Purpose:** Fine-tuning ClinicalBERT and building multimodal deep learning models.
 
-Aligning patients with clinical notes
+**Key steps:**
+- Filtering notes for elderly patients  
+- Chunking long discharge summaries  
+- Fine-tuning ClinicalBERT using attention pooling  
+- Extracting [CLS] embeddings  
+- Training:
+  - ClinicalBERT MLP  
+  - Structured MLP  
+  - Mid-fusion and Late-fusion models  
+- Model interpretability with SHAP, Integrated Gradients, and attention gates
 
-Traditional baseline models (LR, RF, XGBoost)
+---
 
-Final_Modelling_XAI_Dissertation.ipynb
-Purpose: Fine-tuning ClinicalBERT, extracting attention-based embeddings, and implementing hybrid models.
-Key steps:
+## Data Use Disclaimer  
+This project uses the **MIMIC-IV** database, which is protected by a data use agreement.
 
-Loading and filtering discharge notes by elderly cohort
+- No raw MIMIC-IV data is included or shared.  
+- All shared files are derived or tokenized outputs in full compliance with PhysioNet credentialed access requirements.
 
-Sliding window chunking and ClinicalBERT fine-tuning
+To access MIMIC-IV: [https://physionet.org](https://physionet.org)
 
-Attention pooling and [CLS] embedding extraction
+---
 
-Structured MLP, ClinicalBERT MLP, and Mid-/Late-Fusion models
+## How to Reproduce
 
-SHAP, Integrated Gradients, and attention gate analysis
-
-Data Use Disclaimer
-This project uses the MIMIC-IV database, which is protected under a data use agreement.
-No raw MIMIC-IV data is included or shared.
-All outputs are limited to derived features and minimal processed subsets (e.g., tokenized embeddings), in full compliance with the credentialed access terms.
-Please refer to https://physionet.org to request access.
-
-How to Reproduce
-Due to licensing restrictions, users must have access to MIMIC-IV. Once access is granted:
-
-Preprocess data using Final_Preprocessing.ipynb
-
-Train and evaluate models using Final_Modelling_XAI_Dissertation.ipynb
-
-Adjust paths in code cells to match your local or Google Drive file structure
+1. Obtain access to the MIMIC-IV dataset through PhysioNet.  
+2. Run `Final_Preprocessing.ipynb` to prepare data.  
+3. Run `Final_Modelling_XAI_Dissertation.ipynb` to fine-tune ClinicalBERT and train fusion models.  
+4. Update all file paths to match your environment (e.g., Google Drive or local path).
